@@ -90,43 +90,42 @@
 ### Flex Consumption Plan 
 - Click on below button to deploy with Flex Consumption plan:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fshubhamloginsoft%2FJoe%2Frefs%2Fheads%2Fmain%2F%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FRamboV%2FJoeSandboxMSSentinel%2Frefs%2Fheads%2Fmain%2F%2FJoeSandboxThreatIntelligence%2FFlexCunsumptionPlan%2Fazure_deploy.json)
 ### Premium Plan
 - Click on below button to deploy with Premium plan:
 
-  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvmray%2Fms-sentinel%2Frefs%2Fheads%2Fmain%2FVMRayThreatIntelligence%2FPremiumPlan%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2FRamboV%2FJoeSandboxMSSentinel%2Frefs%2Fheads%2Fmain%2F%2FJoeSandboxThreatIntelligence%2FPremiumPlan%2Fazure_deploy.json)
 
 - It will redirect to feed Configuration page.
   ![09](Images/09.png)
 - Please provide the values accordingly.
   
-| Fields                                                | Description                                                                                                         |
-|:------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------
-| Subscription		                                        | Select the appropriate Azure Subscription                                                                           | 
-| Resource Group 	                                      | Select the appropriate Resource Group                                                                               |
-| Region			                                             | Based on Resource Group this will be uto populated                                                                  |
-| Function Name		                                       | Please provide a function name if needed to change the default value                                                |
-| Joe Sandbox Base URL                                  | Joe Sandbox Base URL                                                                                                |
-| Joe Sandbox API Key                                   | Joe Sandbox API Key                                                                                                 |
-| Azure Client ID                                       | Enter the Azure Client ID created in the App Registration Step                                                      |
-| Azure Client Secret                                   | Enter the Azure Client Secret created in the App Registration Step                                                  |
-| Azure Tenant ID                                       | Enter the Azure Tenant ID of the App Registration                                                                   |
-| Azure Workspacse ID                                   | Enter the Azure Workspacse ID. Go to  `Log Analytics workspace -> Overview`, Copy `Workspace ID`, refer below image.|
-| App Insights Workspace Resource ID                    | Go to `Log Analytics workspace` -> `Settings` -> `Properties`, Copy `Resource ID` and paste here                    |
+| Fields                                                | Description                                                                                                       |
+|:------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------
+| Subscription		                                        | Select the appropriate Azure Subscription                                                                         | 
+| Resource Group 	                                      | Select the appropriate Resource Group                                                                             |
+| Region			                                             | Based on Resource Group this will be uto populated                                                                |
+| Function Name		                                       | Please provide a function name if needed to change the default value                                              |
+| Joe Sandbox Base URL                                  | Joe Sandbox Base URL                                                                                              |
+| Joe Sandbox API Key                                   | Joe Sandbox API Key                                                                                               |
+| Azure Client ID                                       | Enter the Azure Client ID created in the App Registration Step                                                    |
+| Azure Client Secret                                   | Enter the Azure Client Secret created in the App Registration Step                                                |
+| Azure Tenant ID                                       | Enter the Azure Tenant ID of the App Registration                                                                 |
+| Azure Workspacse ID                                   | Enter the Azure Workspacse ID. Go to  `Log Analytics workspace -> Overview`, Copy `Workspace ID`                  |
+| App Insights Workspace Resource ID                    | Go to `Log Analytics workspace` -> `Settings` -> `Properties`, Copy `Resource ID` and paste here                  |
 
-![40](Images/40.png)
 
 - Once you provide the above values, please click on `Review + create` button.
 
-- Once the threat intelligence function app connector is succussefully deployed, the connector saves the IOCS into the Microsoft Sentinel Threat Intelligence.
+- Once the threat intelligence function app connector is successfully deployed, the connector saves the IOCS into the Microsoft Sentinel Threat Intelligence.
 
 ![ti_feed](Images/ti_feed.png)
 
-## Deploy VMRay Enrichment Function App Connector
+## Deploy JoeSandbox Enrichment Function App Connector
 
 - Click on below button to deploy 
 
-  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvmray%2Fms-sentinel%2Frefs%2Fheads%2Fmain%2FVMRayEnrichment%2Fazuredeploy.json)
+  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FRamboV%2FJoeSandboxMSSentinel%2Frefs%2Fheads%2Fmain%2FJoeSandboxEnrichment%2Fazuredeploy.json)
   
 - It will redirect to feed Configuration page.
 
@@ -142,7 +141,7 @@
 | Function Name		                    | Please provide a function name if needed to change the default value                             |
 | Joe Sandbox Base URL               | Joe Sandbox Base URL                                                                             |
 | Joe Sandbox API Key                | Joe Sandbox API Key                                                                              |
-| Resubmit                           | If true file will be resubmitted to VMRay                                                        |
+| Resubmit                           | If true file will be resubmitted to JoeSandbox                                                   |
 | App Insights Workspace Resource ID | Go to `Log Analytics workspace` -> `Settings` -> `Properties`, Copy `Resource ID` and paste here |
 
 - Once you provide the above values, please click on `Review + create` button.
@@ -152,11 +151,11 @@
 
 ### `JoeSandbox-Submit-Url-Sentinel-Incident` Logic App
 
-- This playbook can be used to enrich sentinel incidents, this playbook when configured to trigger on seninel incidents, the playbook will collect all the `URL` entities from the Incident and submits them to VMRay analyzer, once the submission is completed, it will add the VMRay Analysis report to the Incident and creates the IOCs in the microsoft seninel threat intelligence.
+- This playbook can be used to enrich sentinel incidents, this playbook when configured to trigger on seninel incidents, the playbook will collect all the `URL` entities from the Incident and submits them to JoeSandbox, once the submission is completed, it will add the JoeSandbox Analysis report to the Incident and creates the IOCs in the microsoft seninel threat intelligence.
 
 - Click on below button to deploy
   
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvmray%2Fms-sentinel%2Frefs%2Fheads%2Fmain%2FLogicApps%2Fazuredeploy1.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FRamboV%2FJoeSandboxMSSentinel%2Frefs%2Fheads%2Fmain%2FLogicApps%2Fazuredeploy1.json)
 
 - It will redirect to configuration page
 
@@ -164,26 +163,26 @@
 
 - Please provide the values accordingly
 
-|       Fields       |   Description |
-|:---------------------|:--------------------
-| Subscription		| Select the appropriate Azure Subscription    | 
-| Resource Group 	| Select the appropriate Resource Group |
-| Region			| Based on Resource Group this will be uto populated |
-| Playbook Name		| Please provide a playbook name, if needed |
-| Workspace ID		| Please provide Log Analytics Workspace ID |
-| Function App Name		| Please provide the VMRay enrichment function app name |
+|       Fields       | Description                                                |
+|:---------------------|:-----------------------------------------------------------
+| Subscription		| Select the appropriate Azure Subscription                  | 
+| Resource Group 	| Select the appropriate Resource Group                      |
+| Region			| Based on Resource Group this will be uto populated         |
+| Playbook Name		| Please provide a playbook name, if needed                  |
+| Workspace ID		| Please provide Log Analytics Workspace ID                  |
+| Function App Name		| Please provide the JoeSandbox enrichment function app name |
 
 - Once you provide the above values, please click on `Review + create` button.
 
 
 ### `JoeSandbox-Submit-File-Outlook-Attachment` Logic App
 
-- This playbook can be used to enrich outlook attachments, this playbook when configured will collect all the `attachements` from the email and submits them to VMRay analyzer, once the submission is completed, it will add the VMRay Analysis report by creating an Incident and creates the IOCs in the microsoft seninel threat intelligence.
+- This playbook can be used to enrich outlook attachments, this playbook when configured will collect all the `attachements` from the email and submits them to JoeSandbox, once the submission is completed, it will add the JoeSandbox Analysis report by creating an Incident and creates the IOCs in the microsoft seninel threat intelligence.
 
 
 - Click on below button to deploy
   
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvmray%2Fms-sentinel%2Frefs%2Fheads%2Fmain%2FLogicApps%2Fazuredeploy2.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FRamboV%2FJoeSandboxMSSentinel%2Frefs%2Fheads%2Fmain%2FLogicApps%2Fazuredeploy2.json)
 
 - It will redirect to configuration page
 
@@ -191,15 +190,15 @@
 
 - Please provide the values accordingly
 
-|       Fields       |   Description |
-|:---------------------|:--------------------
-| Subscription		| Select the appropriate Azure Subscription    | 
-| Resource Group 	| Select the appropriate Resource Group |
-| Region			| Based on Resource Group this will be uto populated |
-| Playbook Name		| Please provide a playbook name, if needed |
-| Workspace Name		| Please provide Log Analytics Workspace Name |
-| Workspace ID		| Please provide Log Analytics Workspace ID |
-| Function App Name		| Please provide the VMRay enrichment function app name |
+|       Fields       | Description                                                |
+|:---------------------|:-----------------------------------------------------------
+| Subscription		| Select the appropriate Azure Subscription                  | 
+| Resource Group 	| Select the appropriate Resource Group                      |
+| Region			| Based on Resource Group this will be uto populated         |
+| Playbook Name		| Please provide a playbook name, if needed                  |
+| Workspace Name		| Please provide Log Analytics Workspace Name                |
+| Workspace ID		| Please provide Log Analytics Workspace ID                  |
+| Function App Name		| Please provide the JoeSandbox enrichment function app name |
 
 - Once you provide the above values, please click on `Review + create` button.
 
